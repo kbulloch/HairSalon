@@ -30,5 +30,22 @@
             //Assert
             $this->assertEquals($name, $result);
         }
+
+        function test_setName()
+        {
+            //Arrange
+            $name = "Francis";
+            $stylist_id = 111;
+            $id = null;
+            $test_client = new Client($name, $stylist_id, $id);
+
+            $new_name = "Lucious";
+
+            //Act
+            $test_client->setName($new_name);
+
+            //Assert
+            $this->assertEquals($new_name, $test_client->getName());
+        }
     }
 ?>
