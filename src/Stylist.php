@@ -56,7 +56,10 @@
             $this->setName($new_name);
         }
 
-        //function getClients() OPTIONAL
+        // function getClients()
+        // {
+        //
+        // }
 
         static function getAll()
         {
