@@ -4,8 +4,6 @@
     require_once __DIR__."/../src/Stylist.php";
     require_once __DIR__."/../src/Client.php";
 
-
-
     $app = new Silex\Application();
 
     $app['debug']=true;
@@ -53,7 +51,8 @@
     //Personal page for a single stylist
     $app->get("/stylists/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
-        return $app['twig']->render('stylist.twig', array('stylist' => $stylist));
+        $clients = $stylist->getClients();
+        return $app['twig']->render('stylist.twig', array('stylist' => $stylist, 'clients' => $clients));
     });
 
     //Update a single stylist's name
@@ -61,7 +60,8 @@
         $stylist = Stylist::find($id);
         $new_name = $_POST['new_name'];
         $stylist->update($new_name);
-        return $app['twig']->render('stylist.twig', array('stylist' => $stylist));
+        $clients = $stylist->getClients();
+        return $app['twig']->render('stylist.twig', array('stylist' => $stylist, 'clients' => $clients));
     });
 
     //Options to edit a single stylist
