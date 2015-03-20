@@ -71,8 +71,20 @@
             return $clients;
         }
 
+        static function find($search_id)
+        {
+            $found_client = null;
+            $clients = Client::getAll();
+            foreach($clients as $the_client) {
+                $client_id = $the_client->getId();
+                if ($client_id == $search_id) {
+                    $found_client = $the_client;
+                }
+            }
+            return $found_client;
+        }
 
-        //function find($search_id)
+
         //function update()
         //function delete()
 
