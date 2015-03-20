@@ -1,7 +1,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <title></title>
+    <title>Solar Salon</title>
 </head>
 <body>
     <div class="container">
@@ -12,16 +12,26 @@
                 <label for="stylist_name">Enter a new Stylist name</label>
                 <input type="text" name="stylist_name" class="form-control">
             </div>
-            <button type="submit" class="btn btn-warning">Add Stylist!</button>
+            <button type="submit" class="btn btn-info">Add Stylist!</button>
         </form>
 
         {% if stylists is not empty %}
             {% for stylist in stylists %}
                 <ul>
-                    <li>{{ stylist.getName }}</li>
+                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
                 </ul>
             {% endfor %}
+            <form action="/delete_stylists" method="post">
+                <button type="submit" class="btn btn-danger">Delete All Stylists</button>
+            </form>
+        {% else %}
+            <p>
+                There are no stylists working at Solar Salon yet
+            </p>
         {% endif %}
+
+
+
     </div>
 </body>
 </html>

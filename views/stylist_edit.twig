@@ -1,0 +1,19 @@
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <title>Edit {{ stylist.getName }}</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit {{ stylist.getName }}</h1>
+        <div class="form-group">
+            <form action="/stylists/{{ stylist.getId }}" method="post">
+                <input name="_method" type="hidden" value="patch">
+                <label for="new_name">Enter new Stylist Name</label>
+                <input id="new_name" name="new_name" class="form-control" type="text">
+            </form>
+        </div>
+        <button type="submit" class="btn btn-warning">Submit Change</button>
+    </div>
+</body>
+</html>
