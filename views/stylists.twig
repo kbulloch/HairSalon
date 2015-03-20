@@ -7,11 +7,13 @@
     <div class="container">
         <h1>Welcome to the Solar Hair Salon</h1>
         <h4>The only hair salon on the surface of the sun</h4>
+        <br><br>
 
         {% if stylists is not empty %}
+            <h5>These are our stylists:</h5>
             {% for stylist in stylists %}
                 <ul>
-                    <li><h4><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></h4></li>
+                    <li><h5><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></h5></li>
                 </ul>
             {% endfor %}
             <form action="/delete_stylists" method="post">
