@@ -1,5 +1,5 @@
-###Hair Salon
-#Epicodus Assessment 3
+#Hair Salon
+###Epicodus Assessment 3
 
 Kyle Bulloch
 03.20.2015
