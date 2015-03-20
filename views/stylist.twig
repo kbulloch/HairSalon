@@ -12,7 +12,7 @@
             <h4>{{ stylist.getName }}'s clientele</h4>
             {% for client in clients %}
                 <ul>
-                    <li>{{ client.getName }}</li>
+                    <li><a href="/client/{{ client.getId }}/edit">{{ client.getName }}</a></li>
                 </ul>
             {% endfor %}
             <form action="/stylists/{{ stylist.getId }}/delete_clients" method="post">
