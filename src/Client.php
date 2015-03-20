@@ -40,6 +40,22 @@
             $this->stylist_id = $new_stylist_id;
         }
 
+        function getid()
+        {
+            return $this->id;
+        }
+
+        function save()
+        {
+            $statement = $GLOBALS['DB']->query("INSERT INTO clients (name, stylist_id) VALUES ('{$this->getName()}', {$this->getStylistId()}) RETURNING id;");
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $this->setId($result['id']);
+        }
+
+        //function getAll()
+        //function find($search_id)
+        //function update()
+        //function delete()
 
 
 
