@@ -24,6 +24,11 @@
         {
             return $this->name;
         }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients *;");
+        }
     }
 
 ?>
