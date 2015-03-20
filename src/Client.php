@@ -20,22 +20,27 @@
             $this->id = $id;
         }
 
-        function setName($new_name)
-        {
-            $this->name = (string) $new_name;
-        }
-
         function getName()
         {
             return $this->name;
         }
 
-        //function setStylistId()
+        function setName($new_name)
+        {
+            $this->name = (string) $new_name;
+        }
 
         function getStylistId()
         {
             return $this->stylist_id;
         }
+
+        function setStylistId($new_stylist_id)
+        {
+            $this->stylist_id = $new_stylist_id;
+        }
+
+
 
 
 

@@ -62,6 +62,21 @@
             //Assert
             $this->assertEquals(111, $result);
         }
+
+        function test_setStylistId()
+        {
+            //Arrange
+            $name = "Francis";
+            $stylist_id = 111;
+            $id = null;
+            $test_client = new Client($name, $stylist_id, $id);
+
+            //Act
+            $test_client->setStylistId(222);
+
+            //Assert
+            $this->assertEquals(222, $test_client->getStylistId());
+        }
     }
 
 
@@ -86,5 +101,5 @@
 
 
 
-    
+
 ?>

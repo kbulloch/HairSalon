@@ -18,24 +18,24 @@
             $this->id = $id;
         }
 
-        function setName($new_name)
-        {
-            $this->name = (string) $new_name;
-        }
-
         function getName()
         {
             return $this->name;
         }
 
-        function setId($new_id)
+        function setName($new_name)
         {
-            $this->id = (int) $new_id;
+            $this->name = (string) $new_name;
         }
 
         function getId()
         {
             return $this->id;
+        }
+
+        function setId($new_id)
+        {
+            $this->id = (int) $new_id;
         }
 
         function save()
