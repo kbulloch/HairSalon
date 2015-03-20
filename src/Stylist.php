@@ -45,8 +45,10 @@
             $this->setId($result['id']);
         }
 
-        //function delete()
-
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+        }
         //function update()
 
         //function getClients() OPTIONAL
