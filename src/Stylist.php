@@ -1,5 +1,12 @@
 <?php
 
+    /***********
+    *Your class should have the following methods:
+    __construct, getters and setters for all properties,
+    save, getAll, deleteAll, find, update, and delete.
+    *************/
+
+
     class Stylist
     {
         private $name;
@@ -13,7 +20,7 @@
 
         function setName($new_name)
         {
-            $this->name = $new_name;
+            $this->name = (string) $new_name;
         }
 
         function getName()
@@ -37,6 +44,12 @@
             $result = $statement->fetch(PDO::FETCH_ASSOC);
             $this->setId($result['id']);
         }
+
+        //function delete()
+
+        //function update()
+
+        //function getClients() OPTIONAL
 
         static function getAll()
         {
