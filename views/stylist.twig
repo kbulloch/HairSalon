@@ -15,26 +15,36 @@
                     <li>{{ client.getName }}</li>
                 </ul>
             {% endfor %}
+            <form action="/stylists/{{ stylist.getId }}/delete_clients" method="post">/// THIS ACTION IS WRONG, deletes the stylist not the client list
+                <input name="_method" type="hidden" value="delete">
+                <button type="submit" class="btn btn-danger btn-xs">Delete these clients</button>
+            </form>
         {% else %}
             <p>
                 This stylist has no clients at this time
             </p>
         {% endif %}
 
-        <form action="/stylists/{{ stylist.getId }}" method="post">
-            <label for="name">Enter a new client name</label>
-            <input id="name" name="name" type="text">
-        </form>
+        <div class="form-group">
+            <form action="/stylists/{{ stylist.getId }}" method="post">
+                <label for="name">Enter a new client name</label>
+                <input id="name" name="name" type="text" class="form-control">
+            </form>
+        </div>
+
 
         <form action="/stylists/{{ stylist.getId }}/edit" method="get">
-            <button type="submit">Edit this stylist</button>
+            <button type="submit" class="btn btn-info">Edit this stylist</button>
         </form>
 
         <form action="/stylists/{{ stylist.getId }}" method="post">
             <input name="_method" type="hidden" value="delete">
-            <button type="submit">Delete this stylist</button>
+            <button type="submit" class="btn btn-danger">Delete this stylist</button>
         </form>
 
+        <p>
+            <a href="/">Home</a>
+        </p>
 
     </div>
 </body>

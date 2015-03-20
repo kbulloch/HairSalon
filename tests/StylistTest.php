@@ -208,5 +208,31 @@
             //Assert
             $this->assertEquals([$test_client, $test_client2], $result);
         }
+
+        function test_deleteClients()
+        {
+            //Arrange
+            $name = "Diane";
+            $id = null;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $test_stylist_id = $test_stylist->getId();
+
+            $name = "Tommen";
+            $test_client = new Client($name, $test_stylist_id, $id);
+            $test_client->save();
+
+            $name2 = "Laurence";
+            $test_client2 = new Client($name2, $test_stylist_id, $id);
+            $test_client2->save();
+
+            //Act
+            $test_stylist->deleteClients();
+            $result = $test_stylist->getClients();
+
+            //Assert
+            $this->assertEquals([], $result);
+        }
     }
 ?>

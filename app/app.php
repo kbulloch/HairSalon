@@ -19,7 +19,8 @@
 
     //Home page route, takes input for a new stylist
     $app->get("/", function() use ($app) {
-        return $app['twig']->render('index.twig');
+        $stylists = Stylist::getAll();
+        return $app['twig']->render('index.twig', array('stylists' => $stylists));
     });
 
     //Shows list of stylists, takes input for new stylist

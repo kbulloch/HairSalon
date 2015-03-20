@@ -7,22 +7,14 @@
     <div class="container">
         <h1>All Stylists at Solar Salon</h1>
 
-        <form action="/stylists" method="post">
-            <div class="form-group">
-                <label for="stylist_name">Enter a new Stylist name</label>
-                <input type="text" name="stylist_name" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-info">Add Stylist!</button>
-        </form>
-
         {% if stylists is not empty %}
             {% for stylist in stylists %}
                 <ul>
-                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                    <li><h4><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></h4></li>
                 </ul>
             {% endfor %}
             <form action="/delete_stylists" method="post">
-                <button type="submit" class="btn btn-danger">Delete All Stylists</button>
+                <button type="submit" class="btn btn-danger btn-xs">Delete All Stylists</button>
             </form>
         {% else %}
             <p>
@@ -30,7 +22,18 @@
             </p>
         {% endif %}
 
+        <h4>Hire a new Stylist</h4>
+        <form action="/stylists" method="post">
+            <div class="form-group">
+                <label for="stylist_name">Stylist name</label>
+                <input type="text" name="stylist_name" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-info">Add Stylist!</button>
+        </form>
 
+        <p>
+            <a href="/">Home</a>
+        </p>
 
     </div>
 </body>
