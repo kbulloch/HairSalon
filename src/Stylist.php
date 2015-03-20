@@ -47,10 +47,14 @@
 
         function delete()
         {
-            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");    
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
         }
 
-        //function update()
+        function update($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+        }
 
         //function getClients() OPTIONAL
 
