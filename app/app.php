@@ -20,7 +20,7 @@
     //Home page route, takes input for a new stylist
     $app->get("/", function() use ($app) {
         $stylists = Stylist::getAll();
-        return $app['twig']->render('index.twig', array('stylists' => $stylists));
+        return $app['twig']->render('stylists.twig', array('stylists' => $stylists));
     });
 
     //Shows list of stylists, takes input for new stylist
@@ -71,12 +71,21 @@
         return $app['twig']->render('stylist_edit.twig', array('stylist' => $stylist));
     });
 
+    //Shows single stylist page, add a new client
     $app->post("/stylists/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
         $stylist_id = $stylist->getId();
         $name = $_POST['name'];
         $client = new Client($name, $stylist_id);
         $client->save();
+        $clients = $stylist->getClients();
+        return $app['twig']->render('stylist.twig', array('stylist' => $stylist, 'clients' => $clients));
+    });
+
+    //Shows single stylist page, deletes all associated clients
+    $app->delete("/stylists/{id}/delete_clients", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist->deleteClients();
         $clients = $stylist->getClients();
         return $app['twig']->render('stylist.twig', array('stylist' => $stylist, 'clients' => $clients));
     });

@@ -15,9 +15,9 @@
                     <li>{{ client.getName }}</li>
                 </ul>
             {% endfor %}
-            <form action="/stylists/{{ stylist.getId }}/delete_clients" method="post">/// THIS ACTION IS WRONG, deletes the stylist not the client list
+            <form action="/stylists/{{ stylist.getId }}/delete_clients" method="post">
                 <input name="_method" type="hidden" value="delete">
-                <button type="submit" class="btn btn-danger btn-xs">Delete these clients</button>
+                <button type="submit" class="btn btn-warning btn-xs">Delete these clients</button>
             </form>
         {% else %}
             <p>
