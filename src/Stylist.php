@@ -47,8 +47,9 @@
 
         function delete()
         {
-            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");    
         }
+
         //function update()
 
         //function getClients() OPTIONAL
