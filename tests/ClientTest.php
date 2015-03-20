@@ -110,21 +110,21 @@
             $this->assertEquals(222, $result);
         }
 
-        // function test_save()
-        // {
-        //     //Arrange
-        //     $name = "Francis";
-        //     $stylist_id = 111;
-        //     $id = null;
-        //     $test_client = new Client($name, $stylist_id, $id);
-        //
-        //     //Act
-        //     $test_client->save();
-        //
-        //     //Assert
-        //     $result = Client::getAll();
-        //     $this->assertEquals($test_client, $result[0]);
-        // }
+        function test_save()
+        {
+            //Arrange
+            $name = "Francis";
+            $stylist_id = 111;
+            $id = null;
+            $test_client = new Client($name, $stylist_id, $id);
+
+            //Act
+            $test_client->save();
+
+            //Assert
+            $result = Client::getAll();
+            $this->assertEquals($test_client, $result[0]);
+        }
     }
 
 

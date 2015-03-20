@@ -57,7 +57,21 @@
             $this->setId($result['id']);
         }
 
-        //function getAll()
+        static function getAll()
+        {
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $clients = array();
+            foreach($returned_clients as $the_client) {
+                $name = $the_client['name'];
+                $stylist_id = $the_client['stylist_id'];
+                $id = $the_client['id'];
+                $new_client = new Client($name, $stylist_id, $id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
+
+
         //function find($search_id)
         //function update()
         //function delete()
