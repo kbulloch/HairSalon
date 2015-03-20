@@ -45,6 +45,11 @@
             return $this->id;
         }
 
+        function setId($new_id)
+        {
+            $this->id = $new_id;
+        }
+
         function save()
         {
             $statement = $GLOBALS['DB']->query("INSERT INTO clients (name, stylist_id) VALUES ('{$this->getName()}', {$this->getStylistId()}) RETURNING id;");

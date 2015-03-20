@@ -94,6 +94,22 @@
             $this->assertEquals(777, $result);
         }
 
+        function test_setId()
+        {
+            //Arrange
+            $name = "Francis";
+            $stylist_id = 111;
+            $id = 777;
+            $test_client = new Client($name, $stylist_id, $id);
+
+            //Act
+            $test_client->setId(222);
+
+            //Assert
+            $result = $test_client->getId();
+            $this->assertEquals(222, $result);
+        }
+
         // function test_save()
         // {
         //     //Arrange
