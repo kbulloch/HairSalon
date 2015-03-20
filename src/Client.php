@@ -19,6 +19,11 @@
             $this->stylist_id = $stylist_id;
             $this->id = $id;
         }
+
+        function getName()
+        {
+            return $this->name;
+        }
     }
 
 ?>
