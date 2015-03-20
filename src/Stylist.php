@@ -38,6 +38,19 @@
             $this->setId($result['id']);
         }
 
+        static function getAll()
+        {
+            $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");
+            $stylists = array();
+            foreach($returned_stylists as $the_stylist) {
+                $name = $the_stylist['name'];
+                $id = $the_stylist['id'];
+                $new_stylist = new Stylist($name, $id);
+                array_push($stylists, $new_stylist);
+            }
+            return $stylists;
+        }
+
         static function deleteAll()
         {
             $GLOBALS['DB']->exec("DELETE FROM stylists *;");

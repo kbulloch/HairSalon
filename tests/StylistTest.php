@@ -73,5 +73,20 @@
             $result = $test_stylist->getId();
             $this->assertEquals(222, $result);
         }
+
+        function test_save()
+        {
+            //Arrange
+            $name = "Diane";
+            $id = null;
+            $test_stylist = new Stylist($name, $id);
+
+            //Act
+            $test_stylist->save();
+
+            //Assert
+            $result = Stylist::getAll();
+            $this->assertEquals($test_stylist, $result[0]);
+        }
     }
 ?>
