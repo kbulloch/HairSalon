@@ -57,7 +57,12 @@
     });
 
 
-    //$app->patch("/stylists/{id}")
+    $app->patch("/stylists/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $new_name = $_POST['new_name'];
+        $stylist->update($new_name);
+        return $app['twig']->render('stylist.twig', array('stylist' => $stylist));
+    });
 
     //to stylist_edit.twig
     $app->get("/stylists/{id}/edit", function($id) use ($app) {
