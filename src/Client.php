@@ -37,7 +37,7 @@
 
         function setStylistId($new_stylist_id)
         {
-            $this->stylist_id = $new_stylist_id;
+            $this->stylist_id = (int) $new_stylist_id;
         }
 
         function getid()
@@ -47,7 +47,7 @@
 
         function setId($new_id)
         {
-            $this->id = $new_id;
+            $this->id = (int) $new_id;
         }
 
         function save()

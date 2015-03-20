@@ -70,6 +70,16 @@
         return $app['twig']->render('stylist_edit.twig', array('stylist' => $stylist));
     });
 
+    $app->post("/stylists/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist_id = $stylist->getId();
+        $name = $_POST['name'];
+        $client = new Client($name, $stylist_id);
+        $client->save();
+        $clients = $stylist->getClients();
+        return $app['twig']->render('stylist.twig', array('stylist' => $stylist, 'clients' => $clients));
+    });
+
     return $app;
 
 ?>

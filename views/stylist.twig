@@ -21,6 +21,11 @@
             </p>
         {% endif %}
 
+        <form action="/stylists/{{ stylist.getId }}" method="post">
+            <label for="name">Enter a new client name</label>
+            <input id="name" name="name" type="text">
+        </form>
+
         <form action="/stylists/{{ stylist.getId }}/edit" method="get">
             <button type="submit">Edit this stylist</button>
         </form>
