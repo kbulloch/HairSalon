@@ -7,7 +7,6 @@
     <div class="container">
         <h1>{{ stylist.getName }}'s personal page at Solar Salon</h1>
 
-
         {% if clients is not empty %}
             <h4>{{ stylist.getName }}'s clientele</h4>
             {% for client in clients %}
@@ -31,7 +30,6 @@
                 <input id="name" name="name" type="text" class="form-control">
             </form>
         </div>
-
 
         <form action="/stylists/{{ stylist.getId }}/edit" method="get">
             <button type="submit" class="btn btn-info">Edit this stylist</button>

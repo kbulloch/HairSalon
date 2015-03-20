@@ -1,12 +1,5 @@
 <?php
 
-    /***********
-    *Your class should have the following methods:
-    __construct, getters and setters for all properties,
-    save, getAll, deleteAll, find, update, and delete.
-    *************/
-
-
     class Client
     {
         private $name;
